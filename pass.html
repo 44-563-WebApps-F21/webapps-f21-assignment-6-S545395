@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First Java Script Program</title>
+    </head>
+<body>
+
+<h1>Pass phraseby Naga Sateesh Dommety</h1>
+
+<form id="phraseValidationForm">
+    <div>
+    <label for="secret_phrase">Enter the secret phrase</label>
+    <input type ="password" id="secretPhrase" value="Let me in">
+</div>
+<div>
+    <label for="phrase">Enter a phrase</label>
+    <input type ="text" id="checkPhrase"/>
+</div>
+<div>
+    <input type="button" id="btnProcessPhrase" onclick="processPhrase()" value="Check the phrase"/>
+</div>
+</form>
+
+<p id="result"></p>
+
+<script> 
+    correct = 0;
+    wrong = 0;
+   
+   function processPhrase (){
+       console.log("Getting form values")
+       var secretPhrase = document.getElementById("secretPhrase").value;
+       var checkPhrase = document.getElementById("checkPhrase").value;
+       if(secretPhrase != null && secretPhrase.trim() != "" && checkPhrase != null && checkPhrase.trim() != "" && secretPhrase == checkPhrase){
+         correct =correct + 1;
+         alert("Access Allowed");
+       }else{
+           wrong = wrong + 1;
+           alert("Access Denied");  
+       }
+        var out = document.getElementById("result");
+       
+        out.innerHTML = "Correct: " + correct + "<br>" + "Wrong: " + wrong;
+       
+   }
+   </script>
+   
+
+</body>
+</html> 
