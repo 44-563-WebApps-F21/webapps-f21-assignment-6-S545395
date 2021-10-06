@@ -23,9 +23,16 @@
 
 <p id="result"></p>
 
+<div>
+
+    <img src="tiger.jpg" id="image" style="height: 200px;width: 200px;" onclick="newImage()"></img>
+
+</div>
+
 <script> 
     correct = 0;
     wrong = 0;
+    usingImage = 1;
    
    function processPhrase (){
        console.log("Getting form values")
@@ -43,6 +50,31 @@
         out.innerHTML = "Correct: " + correct + "<br>" + "Wrong: " + wrong;
        
    }
+
+
+   function newImage(){
+
+        switch(usingImage){
+
+            case 1: 
+                usingImage++;
+                document.getElementById("image").src = "ocelot.jpg";
+                break;
+            
+            case 2:
+                usingImage++;
+                document.getElementById("image").src = "lion.jpg";
+                break;
+            
+            case 3:
+                usingImage =1;
+                document.getElementById("image").src = "tiger.jpg";
+                break;
+        }
+
+
+   }
+
    </script>
    
 
