@@ -2,7 +2,30 @@
 <html>
     <head>
         <title>First Java Script Program</title>
+
+        <style>
+    
+    h1 {
+        background-color: yellow;
+        color: brown;
+    }
+
+    label {
+        color: black;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    p {
+        color: darkred;
+    }
+
+    button{
+        background-color: seagreen;
+    }
+
+        </style>
     </head>
+
 <body>
 
 <h1>Pass phraseby Naga Sateesh Dommety</h1>
@@ -40,19 +63,22 @@
     correct = 0;
     wrong = 0;
     usingImage = 1;
-   
+    let errorFlag = 1;
+    
    function processPhrase (){
        console.log("Getting form values")
        var secretPhrase = document.getElementById("secretPhrase").value;
        var checkPhrase = document.getElementById("checkPhrase").value;
+
        if(secretPhrase != null && secretPhrase.trim() != "" && checkPhrase != null && checkPhrase.trim() != "" && secretPhrase == checkPhrase){
          correct =correct + 1;
          alert("Access Allowed");
+         errorFlag =0;
        }else{
            wrong = wrong + 1;
            alert("Access Denied"); 
-           
-           if (wrong > 3) {
+           errorFlag++;
+           if (wrong >= 3 && errorFlag>2) {
                     alert("account locked");
             }
        }
