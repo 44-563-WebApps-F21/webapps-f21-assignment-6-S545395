@@ -28,8 +28,11 @@
 <p id="result"></p>
 
 <div>
+    <label for="image">Image: </label>
+    <img src="tiger.jpg" id="image" style="height: 200px;width: 200px;" onclick="newImage()"></img><br><br>
 
-    <img src="tiger.jpg" id="image" style="height: 200px;width: 200px;" onclick="newImage()"></img>
+    <label for="image">Guess: </label>
+    <img src="ocelot.jpg" id="imageGuess" style="height: 200px;width: 200px;" onclick="newImage()"></img>
 
 </div>
 
@@ -47,7 +50,11 @@
          alert("Access Allowed");
        }else{
            wrong = wrong + 1;
-           alert("Access Denied");  
+           alert("Access Denied"); 
+           
+           if (wrong > 3) {
+                    alert("account locked");
+                }
        }
         var out = document.getElementById("result");
        
@@ -63,16 +70,19 @@
             case 1: 
                 usingImage++;
                 document.getElementById("image").src = "ocelot.jpg";
+                document.getElementById("imageGuess").src = "lion.jpg";
                 break;
             
             case 2:
                 usingImage++;
                 document.getElementById("image").src = "lion.jpg";
+                document.getElementById("imageGuess").src = "tiger.jpg";
                 break;
             
             case 3:
                 usingImage =1;
                 document.getElementById("image").src = "tiger.jpg";
+                document.getElementById("imageGuess").src = "ocelot.jpg";
                 break;
         }
 
